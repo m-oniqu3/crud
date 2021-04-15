@@ -149,8 +149,9 @@
     <br>
     <!-- Submit Button -->
     <div class="p-2 col-12">
-      <div class="">
+      <div class="text-right">
         <button type="submit" class="btn btn-success">Submit</button>
+        <a href="crud.php" class="btn btn-danger  ml-2">Cancel</a>
       </div>
     </div>
 
