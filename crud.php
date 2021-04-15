@@ -3,27 +3,18 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>Dashboard</title>
+    <title>Administrator's Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <style>
-        .wrapper {
-            width: 900px;
-            margin: 0 auto;
-        }
+    <link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+<script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
 
-        /*table tr td:last-child {
-            width: 120px;
-        }*/
-    </style>
-    <!--<script>
-        $(document).ready(function() {
-            $('[data-toggle="tooltip"]').tooltip();
-        });
-    </script>-->
+
+
+
 </head>
 
 <body>
@@ -60,7 +51,7 @@
             <div class="col-md-12">
                 <div class="mt-5 mb-3 list-inline">
                     <h2 class="list-inline-item">Employee Records</h2>
-                    <a href="createuser.php" class="btn btn-warning list-inline-item pull-right"><i class="fa fa-plus"></i> Create Employee</a>
+                    <a href="createuser.php" class="btn btn-warning list-inline-item pull-right"><i class="fa fa-plus-circle"></i> Create Employee</a>
                 </div>
                 <p class="lead">Create, Update and View employee records here. </p>
                 <?php
@@ -71,7 +62,7 @@
                 $sql = "SELECT * FROM employee";
                 if ($result = mysqli_query($link, $sql)) {
                     if (mysqli_num_rows($result) > 0) {
-                        echo '<table class="table text-center table-bordered table-striped">';
+                        echo '<table id="myTable" class="table text-center table-bordered table-striped">';
                         echo '<thead >';
                         echo "<tr>";
                         echo "<th>Employee ID</th>";
@@ -121,4 +112,9 @@
     </div>
 </body>
 
+<script>
+$(document).ready(function(){
+    $('#myTable').dataTable();
+});
+</script>
 </html>
