@@ -86,47 +86,47 @@
     </div>
 
 
-    <!-- GPS
-        <div class="">
-          <label class="" for="gps">GPS co-ordinates:</label>
-          <div class="">
-            <input type="text" class="form-control" id="gps" placeholder="Enter Co-ordinate of Location">
-          </div>
-        </div> -->
-
-
-    <!-- Address 1 -->
-    <div class="p-2 col-12">
-      <label class="h6 text-success" for="parish">Parish</label>
-      <div class="">
-        <select name="parish" id="parish" class="form-control" required>
-
-          <option disabled selected value> -- Select a Parish -- </option>
-          <option disabled></option>
-
-          <option disabled> Cornwall County </option>
-          <option value="Hanover">Hanover</option>
-          <option value="St. James">St. James</option>
-          <option value="Trelawny">Trelawny</option>
-          <option value="Westmoreland">Westmoreland</option>
-          <option value="St. Elizabeth">St. Elizabeth</option>
-
-          <option disabled></option>
-          <option disabled> Middlesex County </option>
-          <option value="St. Ann">St. Ann</option>
-          <option value="St. Mary">St. Mary</option>
-          <option value="Clarendon">Clarendon</option>
-          <option value="Manchester">Manchester</option>
-          <option value="St. Catherine">St. Catherine</option>
-
-          <option disabled></option>
-          <option disabled> Surrey County </option>
-          <option value="Portland">Portland</option>
-          <option value="St. Andrew">St. Andrew</option>
-          <option value="Kingston">Kingston</option>
-          <option value="St. Thomas">St. Thomas</option>
-        </select>
+    <!-- Email and Parish-->
+    <div class="form-row p-2">
+      <div class="form-group col-md-6">
+        <label class="h6 text-success" for="email">Email Address</label>
+        <input type="email" class="form-control" id="email" name="email" placeholder="johnbrown@example.com" required>
       </div>
+      
+      <div class="form-group col-md-6">
+        <label class="h6 text-success" for="parish">Parish</label>
+        <div class="">
+          <select name="parish" id="parish" class="form-control" required>
+
+            <option disabled selected value> -- Select a Parish -- </option>
+            <option disabled></option>
+
+            <option disabled> Cornwall County </option>
+            <option value="Hanover">Hanover</option>
+            <option value="St. James">St. James</option>
+            <option value="Trelawny">Trelawny</option>
+            <option value="Westmoreland">Westmoreland</option>
+            <option value="St. Elizabeth">St. Elizabeth</option>
+
+            <option disabled></option>
+            <option disabled> Middlesex County </option>
+            <option value="St. Ann">St. Ann</option>
+            <option value="St. Mary">St. Mary</option>
+            <option value="Clarendon">Clarendon</option>
+            <option value="Manchester">Manchester</option>
+            <option value="St. Catherine">St. Catherine</option>
+
+            <option disabled></option>
+            <option disabled> Surrey County </option>
+            <option value="Portland">Portland</option>
+            <option value="St. Andrew">St. Andrew</option>
+            <option value="Kingston">Kingston</option>
+            <option value="St. Thomas">St. Thomas</option>
+          </select>
+        </div>
+      </div>
+
+
     </div>
 
     <!-- User Role-->
@@ -162,15 +162,9 @@
 
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
-    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-    crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
 
 </body>

@@ -3,7 +3,7 @@
 require_once "config.php";
 
 // Define variables and initialize with empty values
-$fname = $lname = $username = $password = $parish = $role = "";
+$fname = $lname = $username = $password =$email = $parish = $role = "";
 $errorfname = $errorlname = $errorusername = $errorpassword = $errorparish = $errorrole = "";
 
 if (isset($_POST["id"]) && !empty($_POST["id"])) {
@@ -13,15 +13,16 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
     $lname = $_POST["lname"];
     $username = $_POST["username"];
     $password = $_POST["password"];
+    $email = $_POST['email'];
     $parish = $_POST["parish"];
     $role = $_POST["role"];
 
     // Prepare an update statement
-    $sql = "UPDATE employee SET fname=?, lname=?, username=?, password=?, parish=?, role=? WHERE eid=?";
+    $sql = "UPDATE employee SET fname=?, lname=?, username=?, password=?, email=?, parish=?, role=? WHERE eid=?";
 
     if ($stmt = mysqli_prepare($link, $sql)) {
         // Bind variables to the prepared statement as parameters
-        mysqli_stmt_bind_param($stmt, "ssssssi", $param_fname, $param_lname, $param_uname, $param_pwd, $param_address, $param_role, $param_id);
+        mysqli_stmt_bind_param($stmt, "sssssssi", $param_fname, $param_lname, $param_uname, $param_pwd, $param_address, $param_email, $param_role, $param_id);
 
         // Set parameters
 
@@ -29,6 +30,7 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
         $param_lname = $lname;
         $param_uname = $username;
         $param_pwd = $password;
+        $param_email = $email;
         $param_address = $parish;
         $param_role = $role;
         $param_id = $id;
@@ -75,6 +77,7 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
                     $lname = $row['lname'];
                     $username = $row['username'];
                     $password = $row['password'];
+                    $email = $row['email'];
                     $parish = $row['parish'];
                     $role = $row['role'];
                 } else {
@@ -115,8 +118,6 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
     <form class="main-form col-10 col-sm-10 col-md-8 col-lg-6 col-xl-6 mx-auto" action="<?php echo htmlspecialchars(basename($_SERVER['REQUEST_URI'])); ?>" method="post">
         <h2 class="mt-5">Update Record</h2>
         <p>Please edit the input values and submit to update the employee record.</p>
-
-
         <div class="form-row p-2">
 
             <div class="form-group col-md-6">
@@ -148,41 +149,50 @@ if (isset($_POST["id"]) && !empty($_POST["id"])) {
             </div>
         </div>
 
-
-
         <!-- Address  -->
-        <div class="p-2 col-12">
-            <label class="h6 text-success" for="parish">Parish</label>
-            <div class="">
-                <select name="parish" id="parish" class="form-control" required>
+        <div class="form-row p-2">
+            <div class="form-group col-md-6">
+                <label class="h6 text-success" for="email">Email Address</label>
+                <input type="email" class="form-control" id="email" name="email" value="<?php echo $email; ?>" required>
+            </div>
 
-                    <option selected value="<?php echo $parish; ?>"> <?php echo $parish; ?> </option>
-                    <option disabled></option>
+            <div class="form-group col-md-6">
+                
+                    <label class="h6 text-success" for="parish">Parish</label>
+                    <div class="">
+                        <select name="parish" id="parish" class="form-control" required>
 
-                    <option disabled> Cornwall County </option>
-                    <option value="Hanover">Hanover</option>
-                    <option value="St. James">St. James</option>
-                    <option value="Trelawny">Trelawny</option>
-                    <option value="Westmoreland">Westmoreland</option>
-                    <option value="St. Elizabeth">St. Elizabeth</option>
+                            <option selected value="<?php echo $parish; ?>"> <?php echo $parish; ?> </option>
+                            <option disabled></option>
 
-                    <option disabled></option>
-                    <option disabled> Middlesex County </option>
-                    <option value="St. Ann">St. Ann</option>
-                    <option value="St. Mary">St. Mary</option>
-                    <option value="Clarendon">Clarendon</option>
-                    <option value="Manchester">Manchester</option>
-                    <option value="St. Catherine">St. Catherine</option>
+                            <option disabled> Cornwall County </option>
+                            <option value="Hanover">Hanover</option>
+                            <option value="St. James">St. James</option>
+                            <option value="Trelawny">Trelawny</option>
+                            <option value="Westmoreland">Westmoreland</option>
+                            <option value="St. Elizabeth">St. Elizabeth</option>
 
-                    <option disabled></option>
-                    <option disabled> Surrey County </option>
-                    <option value="Portland">Portland</option>
-                    <option value="St. Andrew">St. Andrew</option>
-                    <option value="Kingston">Kingston</option>
-                    <option value="St. Thomas">St. Thomas</option>
-                </select>
+                            <option disabled></option>
+                            <option disabled> Middlesex County </option>
+                            <option value="St. Ann">St. Ann</option>
+                            <option value="St. Mary">St. Mary</option>
+                            <option value="Clarendon">Clarendon</option>
+                            <option value="Manchester">Manchester</option>
+                            <option value="St. Catherine">St. Catherine</option>
+
+                            <option disabled></option>
+                            <option disabled> Surrey County </option>
+                            <option value="Portland">Portland</option>
+                            <option value="St. Andrew">St. Andrew</option>
+                            <option value="Kingston">Kingston</option>
+                            <option value="St. Thomas">St. Thomas</option>
+                        </select>
+                    </div>
+                
             </div>
         </div>
+
+
 
         <!-- User Role-->
         <div class="p-2 col-12">
